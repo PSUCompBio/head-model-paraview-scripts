@@ -1,33 +1,36 @@
+
+# trace generated using paraview version 5.8.1-RC1
+#
+# To ensure correct image size when batch processing, please search
+# for and uncomment the line `# renderView*.ViewSize = [*,*]`
+#### import the simple module from the paraview
+from paraview.simple import *
+import os.path
+import glob
+
 # enter folder id that is downloaded from nsfcareer
-folder_id = 1595511788889
+folder_id = 1595683700876
 
 # if you want to save images to local directory, 1= save, 0= don't save
 save_images = 1
 
 # modify the paths (user name and download location)
-read_path_brain = 'C:\\Users\\rhk12\\Downloads\\%s (1)\\' % folder_id
-read_ply = 'C:\\Users\\rhk12\\Downloads\\%s\\avatars\\*\\face\\model.ply' % folder_id
+read_path_brain = 'C:\\Users\\rhk12\\Downloads\\%s\\' % folder_id
+# note the $s (1) below. This is for when you download from nsfcareer.io, the
+#file names are the same.
+read_ply = 'C:\\Users\\rhk12\\Downloads\\%s (1)\\avatars\\*\\face\\model.ply' % folder_id
 
 
 
 ############################################################################
 ###########  should not need to change anything below ######################
 ############################################################################
-
-# trace generated using paraview version 5.8.1-RC1
-#
-# To ensure correct image size when batch processing, please search
-# for and uncomment the line `# renderView*.ViewSize = [*,*]`
-
-#### import the simple module from the paraview
-from paraview.simple import *
-import os.path
-import glob
-
+#print (read_ply)
+#print(glob.glob(read_ply))
 
 for item in glob.glob(read_ply):
+    print (item)
     read_ply_path = item
-
 
 brainfile = '%s_brain_rotated.vtk' % folder_id
 fiberfile = '%s_fiber_rotated.vtk' % folder_id
@@ -35,12 +38,12 @@ fiberfile = '%s_fiber_rotated.vtk' % folder_id
 brainfile_path = read_path_brain + brainfile
 fiberfile_path = read_path_brain + fiberfile
 
-print (read_path_brain)
-print (read_ply_path)
-print (brainfile)
-print (fiberfile)
-print (brainfile_path)
-print (fiberfile_path)
+print ('read_path_brain = ', read_path_brain)
+print ('read_path_brain = ', read_ply)
+print ('brainfile = ', brainfile)
+print ('fiberfile = ', fiberfile)
+print ('brainfile_path = ', brainfile_path)
+print ('fiberfile_path = ', fiberfile_path)
 
 
 #### disable automatic camera reset on 'Show'
