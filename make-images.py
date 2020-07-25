@@ -1,3 +1,19 @@
+# enter folder id that is downloaded from nsfcareer
+folder_id = 1595511788889
+
+# if you want to save images to local directory, 1= save, 0= don't save
+save_images = 1
+
+# modify the paths (user name and download location)
+read_path_brain = 'C:\\Users\\rhk12\\Downloads\\%s (1)\\' % folder_id
+read_ply = 'C:\\Users\\rhk12\\Downloads\\%s\\avatars\\*\\face\\model.ply' % folder_id
+
+
+
+############################################################################
+###########  should not need to change anything below ######################
+############################################################################
+
 # trace generated using paraview version 5.8.1-RC1
 #
 # To ensure correct image size when batch processing, please search
@@ -8,11 +24,7 @@ from paraview.simple import *
 import os.path
 import glob
 
-folder_id = 1595511788889
-save_images = 1
 
-read_path_brain = 'C:\\Users\\rhk12\\Downloads\\%s (1)\\' % folder_id
-read_ply = 'C:\\Users\\rhk12\\Downloads\\%s\\avatars\\*\\face\\model.ply' % folder_id
 for item in glob.glob(read_ply):
     read_ply_path = item
 
